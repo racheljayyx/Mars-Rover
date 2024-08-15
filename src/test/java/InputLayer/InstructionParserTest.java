@@ -33,22 +33,19 @@ class InstructionParserTest {
 
     @Test
     void parseTest_InvalidInstructions() {
-        String inputOne = "FFEDBE";
-        String inputTwo = "LM23RF";
-        String inputThree = "23._LLW";
-        String inputFour = "";
 
-        String exceptionMessage = "Invalid input.";
+        String[] inputs = {"FFEDBE",
+                "LM23RF",
+                "23._LLW",
+                "",
+                "l M r R"};
 
-        Exception exceptionOne = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputOne));
-        Exception exceptionTwo = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputTwo));
-        Exception exceptionThree = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputThree));
-        Exception exceptionFour = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputFour));
+        String exceptionMessage = "Input must only contain 'L', 'M' or 'R'. No other characters including whitespace is allowed. ";
 
-        assertEquals(exceptionMessage, exceptionOne.getMessage());
-        assertEquals(exceptionMessage, exceptionTwo.getMessage());
-        assertEquals(exceptionMessage, exceptionThree.getMessage());
-        assertEquals(exceptionMessage, exceptionFour.getMessage());
+        for( String input : inputs){
+            Exception exception = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(input));
+            assertEquals(exceptionMessage, exception.getMessage());
+        }
     }
 
 
