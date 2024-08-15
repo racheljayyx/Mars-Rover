@@ -1,12 +1,20 @@
 package InputLayer;
 
-import org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class InstructionParserTest {
 
     @Test
     void parseTest_SingleInstruction() {
+        String input = "L";
+        List<Instruction> expected = new ArrayList<>();
+        expected.add(Instruction.L);
+        List<Instruction> actual = InstructionParser.parse(input);
+        assertEquals(expected, actual);
     }
 
     @Test
