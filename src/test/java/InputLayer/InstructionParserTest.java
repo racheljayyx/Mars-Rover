@@ -59,7 +59,12 @@ class InstructionParserTest {
     }
 
     @Test
-    void parseTest_WithWhiteSpaces() {
+    void parseTest_LowercaseInstructions() {
+
+    }
+
+    @Test
+    void parseTest_MixedCaseInstructions() {
 
     }
 
