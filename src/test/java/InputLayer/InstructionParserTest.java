@@ -33,7 +33,13 @@ class InstructionParserTest {
 
     @Test
     void parseTest_InvalidInstructions() {
+        String inputOne = "FFEDBE";
+        String inputTwo = "LM23RF";
+        String inputThree = "23._LLW";
+        String exceptionMessage = "Invalid input. Enter y to try again or n to exit.";
 
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputOne));
+        assertEquals(exceptionMessage, exception.getMessage());
     }
 
     @Test
