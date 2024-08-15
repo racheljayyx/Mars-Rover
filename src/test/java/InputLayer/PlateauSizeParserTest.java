@@ -54,6 +54,7 @@ class PlateauSizeParserTest {
 
     }
 
+    @Test
     void parseTest_NullInput() {
         String input = null;
         assertNull(PlateauSizeParser.parse(input));
