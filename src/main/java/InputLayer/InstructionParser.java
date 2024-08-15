@@ -7,6 +7,7 @@ public class InstructionParser {
     // returns an array list of instruction enums
 
     public static ArrayList<Instruction> parse(String input){
+
         return null;
     }
 }

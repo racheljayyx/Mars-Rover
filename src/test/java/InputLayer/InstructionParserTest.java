@@ -38,7 +38,7 @@ class InstructionParserTest {
         String inputThree = "23._LLW";
         String inputFour = "";
 
-        String exceptionMessage = "Invalid input. Enter y to try again or n to exit.";
+        String exceptionMessage = "Invalid input.";
 
         Exception exceptionOne = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputOne));
         Exception exceptionTwo = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputTwo));
