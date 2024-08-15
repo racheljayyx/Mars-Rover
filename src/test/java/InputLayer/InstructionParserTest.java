@@ -60,12 +60,32 @@ class InstructionParserTest {
 
     @Test
     void parseTest_LowercaseInstructions() {
-
+        String input = "lmrmmr";
+        List<Instruction> expected = new ArrayList<>();
+        expected.add(Instruction.L);
+        expected.add(Instruction.M);
+        expected.add(Instruction.R);
+        expected.add(Instruction.M);
+        expected.add(Instruction.M);
+        expected.add(Instruction.R);
+        List<Instruction> actual = InstructionParser.parse(input);
+        assertEquals(expected, actual);
     }
 
     @Test
     void parseTest_MixedCaseInstructions() {
-
+        String input = "lmrMMrLL";
+        List<Instruction> expected = new ArrayList<>();
+        expected.add(Instruction.L);
+        expected.add(Instruction.M);
+        expected.add(Instruction.R);
+        expected.add(Instruction.M);
+        expected.add(Instruction.M);
+        expected.add(Instruction.R);
+        expected.add(Instruction.L);
+        expected.add(Instruction.L);
+        List<Instruction> actual = InstructionParser.parse(input);
+        assertEquals(expected, actual);
     }
 
 }
