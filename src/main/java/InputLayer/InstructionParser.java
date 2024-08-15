@@ -17,7 +17,7 @@ public class InstructionParser {
         Matcher matcher = pattern.matcher(input);
 
         if (!matcher.find()){
-            throw new IllegalArgumentException("Invalid input.");
+            throw new IllegalArgumentException("Input must only contain 'L', 'M' or 'R'.");
         }
 
         for (char ch : input.toUpperCase().toCharArray()){
