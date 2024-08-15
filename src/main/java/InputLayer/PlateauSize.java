@@ -1,6 +1,4 @@
 package InputLayer;
 
-public class PlateauSize {
-    private int length;
-    private int width;
+public record PlateauSize(int width, int length) {
 }
