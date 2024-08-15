@@ -36,16 +36,21 @@ class InstructionParserTest {
         String inputOne = "FFEDBE";
         String inputTwo = "LM23RF";
         String inputThree = "23._LLW";
+        String inputFour = "";
+
         String exceptionMessage = "Invalid input. Enter y to try again or n to exit.";
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputOne));
-        assertEquals(exceptionMessage, exception.getMessage());
+        Exception exceptionOne = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputOne));
+        Exception exceptionTwo = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputTwo));
+        Exception exceptionThree = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputThree));
+        Exception exceptionFour = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(inputFour));
+
+        assertEquals(exceptionMessage, exceptionOne.getMessage());
+        assertEquals(exceptionMessage, exceptionTwo.getMessage());
+        assertEquals(exceptionMessage, exceptionThree.getMessage());
+        assertEquals(exceptionMessage, exceptionFour.getMessage());
     }
 
-    @Test
-    void parseTest_EmptyString() {
-
-    }
 
     @Test
     void parseTest_NullInput() {
