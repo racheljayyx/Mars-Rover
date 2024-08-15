@@ -19,7 +19,16 @@ class InstructionParserTest {
 
     @Test
     void parseTest_MultipleInstructions() {
-
+        String input = "LMRMMR";
+        List<Instruction> expected = new ArrayList<>();
+        expected.add(Instruction.L);
+        expected.add(Instruction.M);
+        expected.add(Instruction.R);
+        expected.add(Instruction.M);
+        expected.add(Instruction.M);
+        expected.add(Instruction.R);
+        List<Instruction> actual = InstructionParser.parse(input);
+        assertEquals(expected, actual);
     }
 
     @Test
