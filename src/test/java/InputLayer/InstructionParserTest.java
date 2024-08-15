@@ -49,7 +49,8 @@ class InstructionParserTest {
 
     @Test
     void parseTest_NullInput() {
-
+        String input = null;
+        assertNull(InstructionParser.parse(input));
     }
 
     @Test
