@@ -40,7 +40,7 @@ class InstructionParserTest {
                 "",
                 "l M r R"};
 
-        String exceptionMessage = "Input must only contain 'L', 'M' or 'R'. No other characters including whitespace are allowed. ";
+        String exceptionMessage = "Input must only contain 'L', 'M' or 'R'. No other characters including whitespace are allowed.";
 
         for( String input : inputs){
             Exception exception = assertThrows(IllegalArgumentException.class, () -> InstructionParser.parse(input));
