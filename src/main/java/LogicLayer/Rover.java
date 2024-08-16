@@ -2,13 +2,18 @@ package LogicLayer;
 
 import InputLayer.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Rover {
-    private int id = 0;
+    private static int idCounter = -1;
+
     private Position roverPosition;
+    private int id;
 
     public Rover(Position roverPosition) {
         this.roverPosition = roverPosition;
-        this.id +=1;
+        this.id = idCounter++;
     }
 
     public int getId() {
@@ -21,5 +26,9 @@ public class Rover {
 
     public void setRoverPosition(Position roverPosition) {
         this.roverPosition = roverPosition;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
