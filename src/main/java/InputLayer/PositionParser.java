@@ -1,6 +1,6 @@
 package InputLayer;
 
-public class PositionParser {
+public final class PositionParser {
     // takes a string input
     // returns a position object
 
