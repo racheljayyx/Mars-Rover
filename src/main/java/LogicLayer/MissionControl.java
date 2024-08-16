@@ -2,11 +2,7 @@ package LogicLayer;
 
 import InputLayer.Instruction;
 import InputLayer.InstructionParser;
-import InputLayer.Position;
-
 import static LogicLayer.MovementController.*;
-
-import java.awt.image.renderable.RenderableImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +18,6 @@ public class MissionControl {
         this.roverInstructonMap = roverInstructonMap;
     }
 
-    //this method is responsible for taking a list of functions and running them to change the position of the rover
     public void runInstructions(Rover rover){
 
         String instructionsForRover = roverInstructonMap.get(rover);
