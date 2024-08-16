@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class InstructionParser {
-    // takes a string input
-    // returns an array list of instruction enums
+public final class InstructionParser {
 
     public static ArrayList<Instruction> parse(String input){
 

@@ -1,6 +1,6 @@
 package InputLayer;
 
-public class PlateauSizeParser {
+public final class PlateauSizeParser {
     // takes a string
     // returns a PlateauSize object
 
