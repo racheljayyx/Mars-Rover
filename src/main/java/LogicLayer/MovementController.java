@@ -1,42 +1,42 @@
 package LogicLayer;
 
+import InputLayer.Direction;
 import InputLayer.Instruction;
+import InputLayer.Position;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
-//MovementController is a singleton it contains a map of the instructions to the method using a method reference
-public class MovementController {
+//MovementController is a utility class
+public final class MovementController {
 
-    private static final MovementController instance = new MovementController();
-
-    private final Map<Instruction, Runnable> movementMap = new HashMap<>();
-
-    private MovementController() {
-        movementMap.put(Instruction.L, this::turnLeft);
-        movementMap.put(Instruction.R, this::turnRight);
-        movementMap.put(Instruction.M, this::moveForward);
-    };
-
-    public static MovementController getInstance() {
-        return instance;
-    }
-
-    public ArrayList<Runnable> convertInstructions(ArrayList<Instruction> instructions){
-        // methods takes the list of instructions and converts them to an arraylist of runnables
-        ArrayList<Runnable> commands = new ArrayList<>();
-        for(Instruction instruction : instructions){
-            commands.add(movementMap.get(instruction));
+    public static void moveForward(Rover rover){
+        Position position = rover.getRoverPosition();
+        switch (position.getFacing()){
+            case N -> position.setY(position.getY() + 1);
+            case E -> position.setX(position.getX() + 1);
+            case S -> position.setY(position.getY() - 1);
+            case W -> position.setX(position.getX() - 1);
         }
-
-        return commands;
-    }
-
-
-    public void moveForward(){};
-    public void turnLeft(){};
-    public void turnRight(){};
+    };
+    public static void turnLeft(Rover rover){
+        Position position = rover.getRoverPosition();
+        switch (position.getFacing()){
+            case N -> position.setFacing(Direction.W);
+            case E -> position.setFacing(Direction.N);
+            case S -> position.setFacing(Direction.E);
+            case W -> position.setFacing(Direction.S);
+        }
+    };
+    public static void turnRight(Rover rover){
+        Position position = rover.getRoverPosition();
+        switch (position.getFacing()){
+            case N -> position.setFacing(Direction.E);
+            case E -> position.setFacing(Direction.S);
+            case S -> position.setFacing(Direction.W);
+            case W -> position.setFacing(Direction.N);
+        }
+    };
 
 
 
